@@ -21,13 +21,13 @@ export const AboutUs = () => (
               Qui sommes-nous ?
             </h2>
             <p className="text-lg max-w-xl lg:max-w-sm leading-relaxed tracking-tight text-muted-foreground text-left">
-              Nous sommes une jeune équipe dynamique spécialisée dans l'analyse
-              de données, les statistiques, l'évaluation de projets, et bien
-              plus encore. Notre objectif est de vous accompagner dans la
-              transformation de vos données en actions concrètes et
-              stratégiques. Grâce à notre expertise en machine learning, en IT,
-              et en recherche, nous offrons des solutions sur mesure pour
-              optimiser vos projets.
+              Nous sommes une jeune équipe dynamique spécialisée dans
+              l&apos;analyse de données, les statistiques, l&apos;évaluation de
+              projets, et bien plus encore. Notre objectif est de vous
+              accompagner dans la transformation de vos données en actions
+              concrètes et stratégiques. Grâce à notre expertise en machine
+              learning, en IT, et en recherche, nous offrons des solutions sur
+              mesure pour optimiser vos projets.
             </p>
           </div>
         </div>

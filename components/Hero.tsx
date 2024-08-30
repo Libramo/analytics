@@ -13,7 +13,7 @@ export const Hero = () => (
               Transformez vos données en décisions stratégiques
             </h1>
             <p className="text-xl leading-relaxed tracking-tight text-muted-foreground max-w-md text-left">
-              Nous sommes une équipe d'experts en analyse de données,
+              Nous sommes une équipe d&apos;experts en analyse de données,
               statistiques, et évaluation de projets. Découvrez comment nous
               pouvons vous aider à atteindre vos objectifs
             </p>

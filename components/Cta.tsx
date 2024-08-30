@@ -8,7 +8,7 @@ export const Cta = () => (
       <div className="flex flex-col text-center py-14 gap-4 items-center">
         <div className="flex flex-col gap-2">
           <h3 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular">
-            Contactez nous dès aujourd'hui
+            Contactez nous dès aujourd&apos;hui
           </h3>
           {/* <p className="text-lg leading-relaxed tracking-tight text-muted-foreground max-w-xl">
             Managing a small business today is already tough. Avoid further
