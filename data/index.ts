@@ -51,3 +51,26 @@ export const logoPartners = [
     src: "/logos/logo-meni.jpg",
   },
 ];
+
+export const navigationItems = [
+  {
+    title: "Accueil",
+    href: "/",
+    description: "",
+  },
+  {
+    title: "A propos",
+    href: "#about",
+    description: "",
+  },
+  {
+    title: "Services",
+    href: "#services",
+    description: "",
+  },
+  {
+    title: "Nous contacter",
+    href: "#contact",
+    description: "",
+  },
+];

@@ -23,60 +23,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { navigationItems } from "@/data";
 
 export const Header = () => {
   const { setTheme } = useTheme();
-  const navigationItems = [
-    {
-      title: "Home",
-      href: "/",
-      description: "",
-    },
-    {
-      title: "Product",
-      description: "Managing a small business today is already tough.",
-      items: [
-        {
-          title: "Reports",
-          href: "/reports",
-        },
-        {
-          title: "Statistics",
-          href: "/statistics",
-        },
-        {
-          title: "Dashboards",
-          href: "/dashboards",
-        },
-        {
-          title: "Recordings",
-          href: "/recordings",
-        },
-      ],
-    },
-    {
-      title: "Company",
-      description: "Managing a small business today is already tough.",
-      items: [
-        {
-          title: "About us",
-          href: "/about",
-        },
-        {
-          title: "Fundraising",
-          href: "/fundraising",
-        },
-        {
-          title: "Investors",
-          href: "/investors",
-        },
-        {
-          title: "Contact us",
-          href: "/contact",
-        },
-      ],
-    },
-  ];
 
   const [isOpen, setOpen] = useState(false);
   return (
@@ -85,52 +35,10 @@ export const Header = () => {
         <div className="justify-start items-center gap-4 lg:flex hidden flex-row ">
           <NavigationMenu className="flex justify-start items-start ">
             <NavigationMenuList className="flex justify-start gap-4 flex-row ">
-              {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  {item.href ? (
-                    <>
-                      <NavigationMenuLink>
-                        <Button variant="default">{item.title}</Button>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink>
-                        <Button variant="ghost">{item.title}</Button>
-                      </NavigationMenuLink>
-                    </>
-                  ) : (
-                    <>
-                      <NavigationMenuTrigger className="font-medium text-lg ">
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent className="!w-[450px] p-4">
-                        <div className="flex flex-col lg:grid grid-cols-2 gap-4">
-                          <div className="flex flex-col h-full justify-between">
-                            <div className="flex flex-col">
-                              <p className="text-base">{item.title}</p>
-                              <p className="text-muted-foreground text-sm">
-                                {item.description}
-                              </p>
-                            </div>
-                            <Button size="sm" className="mt-10">
-                              contactez-nous
-                            </Button>
-                          </div>
-                          <div className="flex flex-col text-sm h-full justify-end">
-                            {item.items?.map((subItem) => (
-                              <NavigationMenuLink
-                                href={subItem.href}
-                                key={subItem.title}
-                                className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
-                              >
-                                <span>{subItem.title}</span>
-                                <MoveRight className="w-4 h-4 text-muted-foreground" />
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      </NavigationMenuContent>
-                    </>
-                  )}
-                </NavigationMenuItem>
+              {navigationItems.map((item, index) => (
+                <NavigationMenuLink key={index}>
+                  <Button variant="default">{item.title}</Button>
+                </NavigationMenuLink>
               ))}
             </NavigationMenuList>
           </NavigationMenu>
@@ -139,15 +47,15 @@ export const Header = () => {
           <p className="font-semibold">BLY Analytics</p>
         </div>
         <div className="flex justify-end w-full gap-4">
-          <Button variant="ghost" className="hidden md:inline">
+          {/* <Button variant="ghost" className="hidden md:inline">
             Book a demo
-          </Button>
+          </Button> */}
           <div className="border-r hidden md:inline"></div>
-          <Button variant="outline">Sign in</Button>
+          <Button variant="default">Nous contacter</Button>
           <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="default" size="icon">
                   <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                   <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                   <span className="sr-only">Toggle theme</span>
@@ -167,6 +75,7 @@ export const Header = () => {
             </DropdownMenu>
           </div>
         </div>
+
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
           <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -187,19 +96,6 @@ export const Header = () => {
                     ) : (
                       <p className="text-lg">{item.title}</p>
                     )}
-                    {item.items &&
-                      item.items.map((subItem) => (
-                        <Link
-                          key={subItem.title}
-                          href={subItem.href}
-                          className="flex justify-between items-center"
-                        >
-                          <span className="text-muted-foreground">
-                            {subItem.title}
-                          </span>
-                          <MoveRight className="w-4 h-4 stroke-1" />
-                        </Link>
-                      ))}
                   </div>
                 </div>
               ))}

@@ -1,6 +1,7 @@
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export const Hero = () => (
   <div className="w-full  py-20 lg:py-20">
@@ -27,7 +28,15 @@ export const Hero = () => (
             </Button>
           </div>
         </div>
-        <div className="bg-muted rounded-md aspect-square"></div>
+        <div className="bg-muted rounded-md aspect-square">
+          <Image
+            src="/strategy.jpeg"
+            alt="strategy"
+            width={683}
+            height={1024}
+            className="object-cover object-top h-[800px]"
+          />
+        </div>
       </div>
     </div>
   </div>
