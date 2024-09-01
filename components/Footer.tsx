@@ -72,7 +72,7 @@ export const Footer = () => {
                   <Phone size={20} /> (+253) 21 36 86 97
                 </p>
                 <p className="flex items-center space-x-2 p">
-                  <Mail size={28} />
+                  <Mail size={20} />
                   <a href="mailto:contact@bly.consulting">
                     contact@bly.consulting
                   </a>
