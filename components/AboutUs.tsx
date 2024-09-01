@@ -29,7 +29,7 @@ export const AboutUs = () => (
             </h2>
             <p className="text-lg leading-relaxed tracking-tight text-muted-foreground text-left">
               Nous sommes une jeune équipe dynamique spécialisée dans
-              l&apos;analyse de données, les statistiques, l'évaluation de
+              l&apos;analyse de données, les statistiques, l&apos;évaluation de
               projets, et bien plus encore. Notre objectif est de vous
               accompagner dans la transformation de vos données en actions
               concrètes et stratégiques. Grâce à notre expertise en machine
@@ -41,10 +41,10 @@ export const AboutUs = () => (
           {/* Additional Information or CTA */}
           <div className="flex flex-col gap-4">
             <p className="text-base text-muted-foreground">
-              Nous croyons en l'innovation et en la collaboration pour créer des
-              solutions qui répondent aux défis actuels. Notre équipe travaille
-              étroitement avec vous pour comprendre vos besoins uniques et
-              offrir des services adaptés.
+              Nous croyons en l&apos;innovation et en la collaboration pour
+              créer des solutions qui répondent aux défis actuels. Notre équipe
+              travaille étroitement avec vous pour comprendre vos besoins
+              uniques et offrir des services adaptés.
             </p>
             <Button variant="default" className="self-start">
               En savoir plus
