@@ -1,14 +1,55 @@
 "use client";
-import React from "react";
+
+import React, { FormEvent, useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import { Textarea } from "./ui/textarea";
+import {
+  databases,
+  PROJECT_ID,
+  DATABASE_ID,
+  VISITOR_COLLECTION_ID,
+} from "@/lib/appwrite.config";
+import { ID } from "node-appwrite";
+import { createVisitor } from "@/lib/actions/visitor.actions";
 
-export function ContactForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
+import { VisitorFormValidation } from "@/lib/validation";
+import { z } from "zod";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+export const ContactForm = () => {
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const form = useForm<z.infer<typeof VisitorFormValidation>>({
+    resolver: zodResolver(VisitorFormValidation),
+    defaultValues: {
+      fName: "",
+      lName: "",
+      email: "",
+      message: "",
+    },
+  });
+  const handleSubmit = async (
+    values: z.infer<typeof VisitorFormValidation>
+  ) => {
+    // e.preventDefault();
+
+    try {
+      const visitor = { values };
+      const newVisitor = await createVisitor(visitor.values);
+
+      console.log("Document created successfully:", newVisitor);
+      // alert(newVisitor);
+    } catch (error) {
+      console.error("Error creating document:", error);
+      alert("Failed");
+    }
   };
 
   return (
@@ -22,21 +63,43 @@ export function ContactForm() {
           vous repondront dans les 48 heures (c est pas long 😉)
         </p>
 
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8" onSubmit={form.handleSubmit(handleSubmit)}>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
             <LabelInputContainer>
               <Label htmlFor="firstname">Prénom</Label>
-              <Input id="fName" placeholder="Osman" type="text" />
+              <Input
+                id="fName"
+                name="fName"
+                placeholder="Osman"
+                type="text"
+                // value={fName}
+                onChange={(e) => setFName(e.target.value)}
+              />
             </LabelInputContainer>
 
             <LabelInputContainer>
               <Label htmlFor="lastname">Nom</Label>
-              <Input id="lName" placeholder="Abdi" type="text" />
+              <Input
+                id="lName"
+                name="lName"
+                placeholder="Abdi"
+                type="text"
+                // value={lName}
+                onChange={(e) => setLName(e.target.value)}
+              />
             </LabelInputContainer>
           </div>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Adresse Email</Label>
-            <Input id="email" placeholder="osman.abdi@gmail.com" type="email" />
+
+            <Input
+              id="email"
+              placeholder="osman.abdi@gmail.com"
+              type="email"
+              name="email"
+              // value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Message</Label>
@@ -44,6 +107,9 @@ export function ContactForm() {
               id="textMessage"
               placeholder="Saisissez votre message !"
               rows={5}
+              name="message"
+              // value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </LabelInputContainer>
 
@@ -58,7 +124,7 @@ export function ContactForm() {
       </div>
     </div>
   );
-}
+};
 
 const BottomGradient = () => {
   return (

@@ -57,7 +57,12 @@ export const Header = () => {
             <NavigationMenuList className="flex gap-4">
               {navigationItems.map((item, index) => (
                 <NavigationMenuLink key={index}>
-                  <Button variant="default">{item.title}</Button>
+                  <Link href={item.href} passHref legacyBehavior>
+                    <Button variant="default">
+                      {/* Use a fragment or a span to avoid extra anchor tags */}
+                      {item.title}
+                    </Button>
+                  </Link>
                 </NavigationMenuLink>
               ))}
             </NavigationMenuList>

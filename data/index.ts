@@ -62,21 +62,13 @@ export const navigationItems = [
   {
     title: "Accueil",
     href: "/",
-    description: "",
   },
   {
     title: "A propos",
-    href: "#about",
-    description: "",
+    href: "/about",
   },
   {
     title: "Services",
-    href: "#services",
-    description: "",
-  },
-  {
-    title: "Nous contacter",
-    href: "#contact",
-    description: "",
+    href: "/services",
   },
 ];
