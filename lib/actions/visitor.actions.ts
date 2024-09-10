@@ -37,17 +37,7 @@ export const createVisitor = async ({
 
     // { name: "liban", email: "sdsqdqss", message: "shhshshshsshsh" }
     return newVisitor;
-  } catch (error: any) {
-    // Check existing user
-    if (error && error?.code === 409) {
-      const existingUser = await databases.listDocuments(
-        DATABASE_ID!,
-        VISITOR_COLLECTION_ID!,
-        [Query.equal("email", [visitor.email])]
-      );
-
-      // return existingUser.[0];
-    }
-    console.error("An error occurred while creating a new user:", error);
+  } catch (error) {
+    console.error(error);
   }
 };
