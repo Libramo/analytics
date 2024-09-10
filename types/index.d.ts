@@ -1,6 +1,5 @@
 declare interface CreateVisitorParams {
-  fName: string;
-  lName: string;
+  name: string;
   email: string;
   message: string;
 }

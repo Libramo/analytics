@@ -4,25 +4,38 @@ import { ID, Query } from "node-appwrite";
 
 import {
   DATABASE_ID,
-  ENDPOINT,
   VISITOR_COLLECTION_ID,
-  PROJECT_ID,
   databases,
 } from "../appwrite.config";
 
 import { parseStringify } from "../utils";
+import { z } from "zod";
+import { VisitorFormValidation } from "../validation";
 
 // CREATE APPWRITE VISITOR data
-export const createVisitor = async (visitor: CreateVisitorParams) => {
+
+// type FormData = z.infer<typeof VisitorFormValidation>;
+export const createVisitor = async ({
+  name,
+  email,
+  message,
+}: CreateVisitorParams) => {
   try {
-    const newVisitor = databases.createDocument(
+    // const visitorData = JSON.stringify(visitor);
+    // console.log("visitor Data", visitorData);
+
+    // console.log("visitor", visitor);
+    // console.log("parsed", visitor);
+
+    const newVisitor = await databases.createDocument(
       DATABASE_ID!,
       VISITOR_COLLECTION_ID!,
       ID.unique(),
-      { visitor }
+      { name, email, message }
     );
-    console.log(newVisitor);
+    console.log("Inside Create Function", newVisitor);
 
+    // { name: "liban", email: "sdsqdqss", message: "shhshshshsshsh" }
     return newVisitor;
   } catch (error: any) {
     // Check existing user
@@ -33,7 +46,7 @@ export const createVisitor = async (visitor: CreateVisitorParams) => {
         [Query.equal("email", [visitor.email])]
       );
 
-      //   return existingUser.[0];
+      // return existingUser.[0];
     }
     console.error("An error occurred while creating a new user:", error);
   }
