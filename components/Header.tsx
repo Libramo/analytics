@@ -33,6 +33,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalTrigger,
+  useModal,
 } from "./ui/Modal";
 import Image from "next/image";
 import { ContactForm } from "./ContactForm";
@@ -77,7 +78,7 @@ export const Header = () => {
                 {/* <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
                   Contactez-nous
                 </span> */}
-                Nous contacter
+                Ecrivez-nous
               </ModalTrigger>
               <ModalBody>
                 <ModalContent>

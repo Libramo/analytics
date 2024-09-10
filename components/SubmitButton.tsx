@@ -11,7 +11,7 @@ import { Button } from "./ui/button";
 const SubmitButton = () => {
   return (
     <Button type="submit" className="w-full">
-      Envoyer lui
+      Envoyer
     </Button>
   );
 };

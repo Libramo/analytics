@@ -67,8 +67,8 @@ export const Footer = () => {
             </div>
             <div className="flex gap-20 flex-row">
               <div className="flex flex-col text-sm max-w-lg leading-relaxed tracking-tight text-foreground/75 text-left">
-                <p>Balbala, Oum Salama, Djibouti</p>
-                <p className="flex items-center space-x-2 p">
+                <p className="mb-5">Balbala, Oum Salama, Djibouti</p>
+                <p className="mb-4 flex items-center space-x-2 p">
                   <Phone size={20} /> (+253) 21 36 86 97
                 </p>
                 <p className="flex items-center space-x-2 p">

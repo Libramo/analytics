@@ -25,6 +25,7 @@ import { CustomFormField } from "./CustomFormField";
 import { VisitorFormValidation } from "@/lib/validation";
 import SubmitButton from "./SubmitButton";
 import { createVisitor } from "@/lib/actions/visitor.actions";
+import { useRouter } from "next/navigation";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -33,7 +34,8 @@ export enum FormFieldType {
 }
 
 export const ContactForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  // const [isLoading, setIsLoading] = useState(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof VisitorFormValidation>>({
     resolver: zodResolver(VisitorFormValidation),
@@ -63,7 +65,10 @@ export const ContactForm = () => {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mt-20 mx-auto space-y-2 flex-1 w-[400px]"
+      >
         <section>
           <h1 className="header">Contact</h1>
           <p className="text-black">
