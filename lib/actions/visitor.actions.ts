@@ -14,19 +14,12 @@ import { VisitorFormValidation } from "../validation";
 
 // CREATE APPWRITE VISITOR data
 
-// type FormData = z.infer<typeof VisitorFormValidation>;
 export const createVisitor = async ({
   name,
   email,
   message,
 }: CreateVisitorParams) => {
   try {
-    // const visitorData = JSON.stringify(visitor);
-    // console.log("visitor Data", visitorData);
-
-    // console.log("visitor", visitor);
-    // console.log("parsed", visitor);
-
     const newVisitor = await databases.createDocument(
       DATABASE_ID!,
       VISITOR_COLLECTION_ID!,
@@ -35,7 +28,6 @@ export const createVisitor = async ({
     );
     console.log("Inside Create Function", newVisitor);
 
-    // { name: "liban", email: "sdsqdqss", message: "shhshshshsshsh" }
     return newVisitor;
   } catch (error) {
     console.error(error);
