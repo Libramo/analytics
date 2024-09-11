@@ -20,9 +20,11 @@ export const createVisitor = async ({
   message,
 }: CreateVisitorParams) => {
   try {
+    const dbId = DATABASE_ID!;
+    const visitorColId = VISITOR_COLLECTION_ID!;
     const newVisitor = await databases.createDocument(
-      DATABASE_ID!,
-      VISITOR_COLLECTION_ID!,
+      dbId,
+      visitorColId,
       ID.unique(),
       { name, email, message }
     );
